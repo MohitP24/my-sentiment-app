@@ -3,8 +3,10 @@ import gradio as gr
 from transformers import pipeline
 
 # Load the AI model
-model = pipeline("sentiment-analysis")
-
+model = pipeline(
+    "sentiment-analysis",
+    model="distilbert/distilbert-base-uncased-finetuned-sst-2-english"
+)
 
 def analyze_sentiment(text):
     result = model(text)[0]
